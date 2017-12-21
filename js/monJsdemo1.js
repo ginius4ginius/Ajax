@@ -23,12 +23,19 @@ $("input#plat").on("click",
 function(){
       $("#pied").load("import1ter.php",{"plat" : $(this).val()});
 });
-*/
+
 $("select[name='arrondissements']").on("change",//lorsqu'une nouvelle table est sélectionnée"
 function(){
       $.get("etablissement.php",{"arrondissements" : $(this).val() },
       function(data){$("#pied").html(data)});
 });
+*/
+$("select[name='arrondissements']").on("change",//lorsqu'une nouvelle table est sélectionnée"
+function(){
+      $.get("etablissement.php",{"arrondissements" : $(this).val() },
+      function(data){$("#detail").html(data)});
+});
+
 
 
 }); // fin fonction principale
