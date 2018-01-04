@@ -20,8 +20,8 @@
 class PdoEtablissement{
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=ajax';
-      	private static $user='root' ;
-      	private static $mdp='' ;
+      	private static $user='ginius' ;
+      	private static $mdp='WPO22.ADERIEUV93' ;
 	private static $monPdo;
 	private static $monPdoEtablissement=null;
 /**
@@ -55,14 +55,35 @@ class PdoEtablissement{
 		$ligne = $rs->fetchAll();
 		return $ligne;
     }
-
-    public function getLesEtablissementsParArr($arr)
+/*
+    public function getLesEtablissementsParArr($vArr)
     {
-        $req = "select * from etablissement where arrondissement = $arr ";
+        $req = "select * from etablissement where arrondissement = $vArr ";
 		$rs = self::$monPdo->query($req);
 		$ligne = $rs->fetchAll();
 		return $ligne;
     }
+*/
+    public function getLesEtablissementsParArr($vArr)
+    {
+        $req = "select * from etablissement where arrondissement = $vArr ";
+		$rs = self::$monPdo->query($req);
+		//$ligne = $rs->fetchAll();
+    ?><table border="2">
+      <br />
+    <?php
+    while ($lignes = $rs->fetch())
+           {?>
+             <tr>
+               <td><?php echo($lignes['code']);?></td>
+               <td><?php echo($lignes['nom']);?></td>
+               <td><?php echo($lignes['genre']);?></td>
+               <td><?php echo($lignes['adresse']);?></td>
+             </tr>
+
+        <?php }?>
+</table>
+<?php  }
 
 
 }

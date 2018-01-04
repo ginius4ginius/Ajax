@@ -1,11 +1,13 @@
 <?php
 
-include_once('include/class.pdo.inc.php');
+require_once('include/class.pdo.inc.php');
 
-$arr = $_REQUEST['arrondissements'];
+$vArr = $_REQUEST['arrondissements'];
 
 $pdo = PdoEtablissement::getPdoEtablissement();
-$lesLignes = $pdo->getLesEtablissementsParArr($arr);
+$lesLignes = $pdo->getLesEtablissementsParArr($vArr);
+//var_dump($lesLignes);
+
 
 
 
