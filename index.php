@@ -14,11 +14,7 @@
 try
 {
   // On se connecte à MySQL
-<<<<<<< HEAD
   $bdd = new PDO('mysql:host=localhost;dbname=ajax', 'ginius', 'WPO22.ADERIEUV93');
-=======
-  $bdd = new PDO('mysql:host=localhost;dbname=ajax', 'root', '');
->>>>>>> 2a90c7b728c4a2302960fd1fb8b7595e867c8801
 }
 catch(Exception $e)
 {
