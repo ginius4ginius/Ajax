@@ -85,6 +85,34 @@ class PdoEtablissement{
 </table>
 <?php  }
 
+    public function getLesEtablissementsParArr($vArr)
+    {
+        $req = "select * from etablissement where arrondissement = $vArr ";
+		$rs = self::$monPdo->query($req);
+		//$ligne = $rs->fetchAll();
+    ?><table border="2">
+      <br />
+    <?php
+    while ($lignes = $rs->fetch())
+           {?>
+             <tr>
+               <td><?php echo($lignes['code']);?></td>
+               <td><?php echo($lignes['nom']);?></td>
+               <td><?php echo($lignes['genre']);?></td>
+               <td><?php echo($lignes['adresse']);?></td>
+             </tr>
+
+        <?php }?>
+</table>
+<?php  }
+*/
+public function getLesEtablissementsParArr($vArr){
+  $req = "select * from etablissement where arrondissement = $vArr ";
+$rs = self::$monPdo->query($req);
+  return $rs->fetchAll();
+
+}
+
 
 }
 ?>
